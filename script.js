@@ -1,31 +1,31 @@
-document.getElementById("reservaForm").addEventListener("submit", async function (e) {
+// URL de tu Web App de Google Apps Script (la reemplazarás más adelante)
+const WEB_APP_URL = "AQUÍ_TU_URL_DEL_WEB_APP";
+
+document.getElementById("formReserva").addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    const form = new FormData(e.target);
+    const formData = new FormData(this);
 
     const data = {
-        nombre: form.get("nombre"),
-        telefono: form.get("telefono"),
-        fecha: form.get("fecha"),
-        hora: form.get("hora"),
-        comentarios: form.get("comentarios")
+        nombre: formData.get("nombre"),
+        telefono: formData.get("telefono"),
+        servicio: formData.get("servicio"),
+        fecha: formData.get("fecha"),
+        hora: formData.get("hora"),
+        comentarios: formData.get("comentarios")
     };
 
     try {
-        const response = await fetch("https://script.google.com/macros/s/AKfycbwy1jQ7o51J5wmlxvtiqizQV90CJ_AUgHLqZ-lsebardqjXI5VD56911NaRkZ_5DZk_/exec", {
+        await fetch(WEB_APP_URL, {
             method: "POST",
             body: JSON.stringify(data),
             headers: { "Content-Type": "application/json" }
         });
 
-        const result = await response.json();
+        window.location.href = "confirmacion.html"; // REDIRECCIÓN
 
-        if (result.success) {
-            window.location.href = "https://i.postimg.cc/255Sv672/Agendado-Jrs-Barber.png";
-        } else {
-            document.getElementById("status").innerText = "Hubo un error.";
-        }
-    } catch (error) {
-        document.getElementById("status").innerText = "Error de conexión.";
+    } catch (err) {
+        alert("Hubo un error al enviar la reservación.");
+        console.log(err);
     }
 });
