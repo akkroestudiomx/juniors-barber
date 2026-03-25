@@ -1,5 +1,5 @@
 // URL de tu Web App de Google Apps Script (la reemplazarás más adelante)
-const WEB_APP_URL = "AQUÍ_TU_URL_DEL_WEB_APP";
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxnyf5uRa1MBplvVxK8xwdQn9dgKZxZYUfUwiG19k3t3tbkqSbqK-okQ8lnr9vWbwOH/exec";
 
 document.getElementById("formReserva").addEventListener("submit", async function (e) {
     e.preventDefault();
