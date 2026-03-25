@@ -1,39 +1,54 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reservar - JRS Barber</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JR's Barber – Reservación</title>
+
+    <!-- Manrope -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+
     <div class="container">
-        <img src="logo.png" class="logo" />
 
-        <h2>Reservar Cita</h2>
+        <img src="https://i.postimg.cc/D0GwpX9h/Jrs-Barber-Mini.png" alt="Jrs Barber" class="logo">
 
-        <form id="reservaForm">
-            <label>Nombre:</label>
+        <h1 class="title">Reserva tu cita</h1>
+
+        <form id="formReserva">
+
+            <label>Nombre</label>
             <input type="text" name="nombre" required>
 
-            <label>Teléfono:</label>
-            <input type="text" name="telefono" required>
+            <label>Teléfono</label>
+            <input type="tel" name="telefono" pattern="[0-9+ ]{10,15}" required>
 
-            <label>Fecha:</label>
+            <label>Servicio</label>
+            <select name="servicio" required>
+                <option value="">Selecciona un servicio</option>
+                <option value="Corte">Corte</option>
+                <option value="Barba">Barba</option>
+                <option value="Corte y Barba">Corte y Barba</option>
+                <option value="Despunte">Despunte</option>
+            </select>
+
+            <label>Fecha</label>
             <input type="date" name="fecha" required>
 
-            <label>Hora:</label>
+            <label>Hora</label>
             <input type="time" name="hora" required>
 
-            <label>Comentarios:</label>
-            <textarea name="comentarios"></textarea>
+            <label>Comentarios</label>
+            <textarea name="comentarios" rows="3"></textarea>
 
-            <button type="submit">Reservar</button>
+            <button type="submit" class="btnReservar">Reservar</button>
+
         </form>
 
-        <p id="status"></p>
     </div>
 
     <script src="script.js"></script>
