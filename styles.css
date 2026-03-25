@@ -1,53 +1,67 @@
 body {
+    margin: 0;
+    padding: 0;
+    background: #0D0D0D;
     font-family: 'Manrope', sans-serif;
-    background: #f5f5f5;
-    padding: 20px;
+    color: #D6CDC5;
 }
 
 .container {
     max-width: 420px;
     margin: auto;
-    background: white;
-    padding: 25px;
-    border-radius: 14px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    padding: 30px;
+    text-align: left;
 }
 
 .logo {
-    width: 120px;
     display: block;
-    margin: auto;
+    width: 70px;
+    margin: 10px auto 25px;
+}
+
+.title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #D6CDC5;
+    margin-bottom: 25px;
 }
 
 label {
-    font-weight: 600;
-    margin-top: 10px;
     display: block;
+    font-weight: 600;
+    margin: 12px 0 5px;
+    color: #D6CDC5;
 }
 
-input, textarea {
+input, select, textarea {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
+    padding: 14px;
     border-radius: 8px;
-    font-family: 'Manrope', sans-serif !important;
-    margin-top: 5px;
-}
-
-button {
-    width: 100%;
-    margin-top: 15px;
-    padding: 12px;
-    background: black;
-    color: white;
     border: none;
-    border-radius: 8px;
-    font-size: 17px;
+    background: #1A1A1A;
+    color: #fff;
+    font-size: 15px;
+    font-family: 'Manrope', sans-serif;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: 2px solid #D6CDC5;
+}
+
+.btnReservar {
+    margin-top: 20px;
+    width: 100%;
+    background: #D6CDC5;
+    color: #0D0D0D;
+    padding: 16px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    border: none;
     cursor: pointer;
 }
 
-#status {
-    margin-top: 15px;
-    font-size: 16px;
-    text-align: center;
+.btnReservar:hover {
+    background: #cfc6bd;
 }
