@@ -1,0 +1,36 @@
+const form = document.querySelector("#form-reserva");
+const errorTel = document.querySelector("#error-telefono");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const tel = document.querySelector("#telefono").value;
+  const phoneRegex = /^[0-9]{10}$/;
+
+  if (!phoneRegex.test(tel)) {
+    errorTel.style.display = "block";
+    return;
+  } else {
+    errorTel.style.display = "none";
+  }
+
+  const formData = new FormData(form);
+
+  fetch("https://script.google.com/macros/s/AKfycbx_TCXkQ6ZoP1CouiV3VHN42ZHA1EBnyFr39lLAcbrLdxCwosW52BCuniPmGxFvAN3sNQ/exec", {
+    method: "POST",
+    body: formData,
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.status === "success") {
+        window.location.href =
+          "https://i.postimg.cc/255Sv672/Agendado-Jrs-Barber.png";
+      } else {
+        alert("Hubo un error al agendar la cita.");
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      alert("No se pudo conectar con el servidor.");
+    });
+});
